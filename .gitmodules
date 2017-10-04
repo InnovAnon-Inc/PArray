@@ -1,0 +1,9 @@
+[submodule "glitter"]
+	path = glitter
+	url = https://github.com/InnovAnon-Inc/glitter.git
+[submodule "swap"]
+	path = swap
+	url = https://github.com/InnovAnon-Inc/swap.git
+[submodule "MultiMalloc"]
+	path = MultiMalloc
+	url = https://github.com/InnovAnon-Inc/MultiMalloc.git
