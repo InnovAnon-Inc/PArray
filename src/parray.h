@@ -8,6 +8,7 @@ extern "C" {
 #include <stdbool.h>
 #include <sys/types.h>
 
+#include <dsint.h>
 #include <glitter.h>
 
 typedef struct {
@@ -113,9 +114,6 @@ __attribute__ ((leaf, nonnull (1, 2), nothrow, pure, warn_unused_result)) ;
 ssize_t indexOf_parray_chk (parray_t const *restrict parray,
 	void const *restrict e)
 __attribute__ ((nonnull (1, 2), nothrow, pure, warn_unused_result)) ;
-
-typedef __attribute__ ((nonnull (1)))
-void (*free_t) (void *restrict data) ;
 
 void frees_parray (parray_t const *restrict array, free_t cb)
 __attribute__ ((leaf, nonnull (1, 2), nothrow)) ;
