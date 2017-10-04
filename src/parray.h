@@ -42,7 +42,7 @@ void **index_parray (parray_t const *restrict parray, size_t i)
 __attribute__ ((leaf, nonnull (1), nothrow, pure, returns_nonnull, warn_unused_result)) ;
 
 void init_parray (parray_t *restrict parray,
-	void **restrict data, size_t n)
+	void *data[], size_t n)
 __attribute__ ((leaf, nonnull (1, 2), nothrow)) ;
 
 void init_parray2 (parray_t *restrict parray,
@@ -66,7 +66,7 @@ void set_parray (parray_t const *restrict parray, size_t i,
 __attribute__ ((nonnull (1, 3), nothrow)) ;
 
 void sets_parray (parray_t const *restrict parray, size_t i,
-	void **restrict e, size_t n)
+	void *e[], size_t n)
 __attribute__ ((nonnull (1, 3), nothrow)) ;
 
 void free_parray (parray_t const *restrict parray)
@@ -89,7 +89,7 @@ void swap_parray (parray_t const *restrict parray,
 __attribute__ ((nonnull (1, 4), nothrow)) ;
 
 void swaps_parray (parray_t const *restrict parray,
-	size_t i, size_t j, size_t n, void *restrict tmp)
+	size_t i, size_t j, size_t n, void *tmp[])
 __attribute__ ((nonnull (1, 5), nothrow)) ;
 
 /* src and dest should not overlap ? */

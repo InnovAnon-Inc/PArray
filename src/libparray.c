@@ -82,7 +82,7 @@ void **index_parray (parray_t const *restrict array, size_t i) {
 
 __attribute__ ((leaf, nonnull (1, 2), nothrow))
 void init_parray (parray_t *restrict array,
-	void **restrict data, size_t n) {
+	void *data[], size_t n) {
 	array->data = data;
 	array->n    = n;
 }
@@ -137,7 +137,7 @@ void set_parray (parray_t const *restrict array, size_t i,
 
 __attribute__ ((nonnull (1, 3), nothrow))
 void sets_parray (parray_t const *restrict array, size_t i,
-	void **restrict e, size_t n) {
+	void *e[], size_t n) {
 	void **restrict dest;
 	assert (i + n <= array->n);
 	if (n == 0) return;
@@ -199,7 +199,7 @@ void swap_parray (parray_t const *restrict array,
 
 __attribute__ ((nonnull (1, 5), nothrow))
 void swaps_parray (parray_t const *restrict array,
-	size_t i, size_t j, size_t n, void *restrict tmp) {
+	size_t i, size_t j, size_t n, void *tmp[]) {
 	void **restrict src;
 	void **restrict dest;
 	/*assert (i + n < array->n);
