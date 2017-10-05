@@ -59,8 +59,9 @@ __attribute__ ((nonnull (1), nothrow, warn_unused_result)) ;
 void *get_parray (parray_t const *restrict parray, size_t i)
 __attribute__ ((nonnull (1), nothrow)) ;
 
-void **gets_parray (parray_t const *restrict parray, size_t i)
-__attribute__ ((nonnull (1), nothrow)) ;
+void gets_parray (parray_t const *restrict array, size_t i,
+	void *e[], size_t n)
+__attribute__ ((nonnull (1, 3), nothrow)) ;
 
 void set_parray (parray_t const *restrict parray, size_t i,
 	void *restrict e)
