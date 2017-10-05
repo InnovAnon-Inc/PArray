@@ -7,3 +7,6 @@
 [submodule "MultiMalloc"]
 	path = MultiMalloc
 	url = https://github.com/InnovAnon-Inc/MultiMalloc.git
+[submodule "m4"]
+	path = m4
+	url = https://github.com/InnovAnon-Inc/m4-common
