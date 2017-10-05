@@ -128,7 +128,7 @@ void *get_parray (parray_t const *restrict array, size_t i) {
 __attribute__ ((nonnull (1, 3), nothrow))
 void gets_parray (parray_t const *restrict array, size_t i,
 	void *e[], size_t n) {
-	void const **restrict src;
+	void /*const*/ **restrict src;
 	/*assert (i + n < array->n);*/
 	assert (i + n <= array->n);
 	if (n == 0) return;
