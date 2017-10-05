@@ -57,7 +57,7 @@ int realloc_parray (parray_t *restrict parray, size_t n)
 __attribute__ ((nonnull (1), nothrow, warn_unused_result)) ;
 
 void *get_parray (parray_t const *restrict parray, size_t i)
-__attribute__ ((nonnull (1), nothrow)) ;
+__attribute__ ((nonnull (1), nothrow, pure, warn_unused_result)) ;
 
 void gets_parray (parray_t const *restrict array, size_t i,
 	void *e[], size_t n)

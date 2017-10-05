@@ -115,7 +115,7 @@ int realloc_parray (parray_t *restrict array, size_t n) {
 	return 0;
 }
 
-__attribute__ ((nonnull (1), nothrow))
+__attribute__ ((nonnull (1), nothrow, pure, warn_unused_result))
 void *get_parray (parray_t const *restrict array, size_t i) {
 	return *(index_parray (array, i));
 	/*assert (i < array->n || (i == 0 && array->n == 0));
