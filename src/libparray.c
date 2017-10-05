@@ -37,8 +37,11 @@ parray_t *ez_alloc_parray (size_t n) {
 
 	eszs[0] = sizeof (parray_t);
 	eszs[1] = pdatasz  (n);
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wstrict-aliasing"
    combined[0] = (void *restrict *restrict) &caq;
    combined[1] = (void *restrict *restrict) &data;
+	#pragma GCC diagnostic pop
 	error_check (mmalloc2 (combined, eszs,
 		eszs[0] + eszs[1], ARRSZ (eszs)) != 0)
 		return NULL;
