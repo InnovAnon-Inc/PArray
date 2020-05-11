@@ -1,0 +1,96 @@
+stat_t     stats[];
+stat_off_t stat_offs[];
+
+stat_off_update (val1, val2):
+	val = diff (val1, val2);
+	stat_update (val);
+
+stat_ngram_update (vals[], nval):
+	ngram = combine (vals, nval)
+	pstat_update (&ngram)
+
+stat_mulvar_update (vals[], nval):
+	ngram = combine (vals, nval)
+	pstat_update (&ngram)
+
+
+ez_stat_off (vals[], nval, offset):
+	size_t vi;
+	/* offset must evenly divide nval */
+	for (vi = 0; vi != nval - offset; vi++)
+		stat_off_update (vals[vi], vals[vi + offset]);
+		update (vals[vi]);
+	/* otherwise */
+	for ( ;      vi != nval;          vi++)
+		update (vals[vi]);
+
+ez_ngram (vals[], nval, n):
+	size_t vi, vj;
+	/* n must evenly divide nval */
+	for (vi = 0; vi != nval - n; vi += n)
+		stat_ngram_update (vals + vi, n);
+		for (vj = 0; vj != n; vj++)
+			update (vals[vi + vj]);
+	/* otherwise */
+	for ( ;      vi != nval;     vi++)
+		update (vals[vi]);
+
+/* vars is temp variable, so we don't have to use malloc */
+ez_mulvar (vals *[], nval, vars[], nvar):
+	size_t vali, vari;
+	TODO (e.g., cache-aware loop-blocking)
+	TODO (if nval is really big... i.e., vals[*][vali])
+	TODO (then it will be slow to load the models' vals)
+	for (vali = 0; vali != nval; vali++)
+		for (vari = 0; vari != nvar; vari++)
+			vars[i] = vals[vari][vali];
+		pstat_update (vars);
+		update (vals[0][vali]);
+
+ez_all (vals *[], nval, vars[], nvar, offset, n):
+	size_t vali, vari, valj;
+	for (vali = 0; vali != nval; vali++)
+		for (vari = 0; vari != nvar; vari++)
+			vars[i] = vals[vari][vali];
+		pstat_update (vars);
+		update (vals[0][vali]);
+
+
+
+
+
+
+
+	/* n must evenly divide nval */
+	for (vali = 0; vali != nval - n; vali += n)
+
+		for (vari = 0; vari != nvar; vari++)
+			vars[vari] = vals[vari] + vali;
+		pstat_update (vars);
+
+		stat_ngram_update (vals + vali, n);
+		for (valj = 0; valj != n && vali + valj != nval - offset; valj++)
+			stat_off_update (vals[vali + valj], vals[vali + valj + offset]);
+			update (vals[vali + valj]);
+		for ( ; valj != n; valj++)
+			update (vals[vali + valj]);
+	/* otherwise */
+	for ( ;      vali != nval - offset;     vali++)
+		stat_off_update (vals[vali], vals[vali + offset]);
+		update (vals[vali]);
+	for ( ;      vali != nval;          vali++)
+		update (vals[vali]);
+
+
+
+
+
+stat_trans_t stat_trans[];
+
+stat_trans_update (_val):
+	val = transform (_val);
+	stat_update (val);
+
+
+
+breakout libisqrt to separate project - pronounced "I squirt"
