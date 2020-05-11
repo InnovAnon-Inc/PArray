@@ -15,7 +15,8 @@ lib_LTLIBRARIES =
 include_HEADERS =
 bin_PROGRAMS    =
 
-include Makefile-LIBADD.inc
+#include Makefile-LIBADD.inc
+dist_bin_SCRIPTS = libparray_config
 
 lib_LTLIBRARIES += libparray.la
 libparray_la_LIBADD = $(LIBPARRAY_LIBADD)
