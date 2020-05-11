@@ -1,0 +1,34 @@
+#include $(top_srcdir)/iSqrt/src/Makefile-LIBADD.inc
+include ../iSqrt/src/Makefile-LIBADD.inc
+
+LIBSTAT_LIBADD = -lm
+
+LIBSTAT_OFF_LIBADD = libstat.la $(LIBSTAT_LIBADD)
+
+LIBSTAT_OFF_DIFF_LIBADD = libstat_off.la $(LIBSTAT_OFF_LIBADD)
+
+LIBPSTAT_LIBADD = -lm
+
+LIBPSTAT_OFF_LIBADD = libpstat.la $(LIBPSTAT_LIBADD)
+
+LIBPSTAT_NGRAM_LIBADD = libpstat.la $(LIBPSTAT_LIBADD)
+
+LIBPSTAT_MULVAR_LIBADD = libpstat.la $(LIBPSTAT_LIBADD)
+
+LIBZEPAST_LIBADD =  libstat.la  $(LIBSTAT_LIBADD)
+LIBZEPAST_LIBADD += libpstat.la $(LIBPSTAT_LIBADD)
+
+LIBSUM_LIBADD = libstat.la $(LIBSTAT_LIBADD)
+
+LIBMEAN_LIBADD = libsum.la $(LIBSUM_LIBADD)
+
+LIBVARIANCE_LIBADD = libstat.la $(LIBSTAT_LIBADD)
+
+LIBIVARIANCE_LIBADD  = libstat.la $(LIBSTAT_LIBADD)
+#if USE_SUBMODULES
+#LIBIVARIANCE_LIBADD += ../iSqrt/src/.libs/libisqrt.la $(LIBISQRT_LIBADD)
+#else
+LIBIVARIANCE_LIBADD += -lisqrt $(LIBISQRT_LIBADD)
+#endif
+
+LIBABSDEV_LIBADD = libstat.la $(LIBSTAT_LIBADD)
