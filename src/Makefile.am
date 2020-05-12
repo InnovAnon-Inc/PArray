@@ -19,7 +19,8 @@ bin_PROGRAMS    =
 dist_bin_SCRIPTS = libparray_config
 
 lib_LTLIBRARIES += libparray.la
-libparray_la_LIBADD = $(LIBPARRAY_LIBADD)
+#libparray_la_LIBADD = $(LIBPARRAY_LIBADD)
+libparray_la_LIBADD = @LIBPARRAY_LIBADD@
 include_HEADERS += parray.h
 #bin_PROGRAMS += parray-test
 #parray_test_LDADD = libparray.la $(LIBPARRAY_LIBADD)
