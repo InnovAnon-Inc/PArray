@@ -25,8 +25,9 @@ AC_CHECK_LIB([stdlib],[memcpy])
 AC_CHECK_LIB([swap],[swap,swap2,swaps,swaps2])
 AC_CHECK_LIB([mmalloc],[mmalloc,mfree])
 
-srcdir = @srcdir@
-LIBPARRAY_LIBADD="`PATH=$(srcdir)src:$PATH libparray_config --libs`"
+#srcdir = @srcdir@
+#LIBPARRAY_LIBADD="`PATH=$(srcdir)src:$PATH libparray_config --libs`"
+LIBPARRAY_LIBADD="`PATH=src:$PATH libparray_config --libs`"
 AC_SUBST(LIBPARRAY_LIBADD)
 
 INNOVANON_WARNINGS([])
