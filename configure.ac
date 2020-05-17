@@ -9,8 +9,8 @@ AC_CONFIG_FILES([
  Makefile
  src/Makefile
  src/libparray.pc
- src/parray-test.pc
 ])
+#src/parray-test.pc
 
 PKG_PROG_PKG_CONFIG
 
