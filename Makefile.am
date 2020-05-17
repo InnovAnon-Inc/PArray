@@ -1,5 +1,11 @@
+# Install the pkg-config file.
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = src/libparray.pc src/parray-test.pc
+
+DISTCLEANFILES = $(pkgconfig_DATA)
+EXTRA_DIST = src/libparray.pc.in src/parray-test.pc.in
+
 SUBDIRS = src
-#SUBDIRS = glitter swap src
 dist_doc_DATA = README.md
 ACLOCAL_AMFLAGS = -I m4
 
