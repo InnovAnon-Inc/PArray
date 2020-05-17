@@ -1,4 +1,4 @@
-AC_INIT([parray], [0.0], [laurence.a.maddox@gmail.com])
+AC_INIT([libparray], [0.0], [laurence.a.maddox@gmail.com])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
@@ -29,8 +29,8 @@ AC_CHECK_LIB([stdlib],[memcpy])
 #AC_CHECK_LIB([mmalloc],[mmalloc,mfree])
 
 PKG_CHECK_MODULES([GLITTER],[glitter],,)
-PKG_CHECK_MODULES([MMALLOC],[mmalloc],,)
-PKG_CHECK_MODULES([SWAP],[swap],,)
+PKG_CHECK_MODULES([MMALLOC],[libmmalloc],,)
+PKG_CHECK_MODULES([SWAP],[libswap],,)
 
 INNOVANON_WARNINGS([])
 
